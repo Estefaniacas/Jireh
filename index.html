@@ -256,14 +256,14 @@ dialog .btn{margin-top:16px}
 <div>Café que bendice, momentos que perduran.<br>Kareelbakkerijstraat 27, 1853 Grimbergen, Bélgica<br>WhatsApp +32 489 73 92 64 · +32 498 37 61 90<br><a href="mailto:Info@jirehcoffee.eu">Info@jirehcoffee.eu</a></div>
 </div>
 <ul class="legal-links">
-<li><button data-d="d-priv">Política de privacidad</button></li>
-<li><button data-d="d-reem">Política de reembolso</button></li>
-<li><button data-d="d-retiro">Retirar compra</button></li>
-<li><button data-d="d-aviso">Aviso legal</button></li>
+<li><button data-dlg="d-priv">Política de privacidad</button></li>
+<li><button data-dlg="d-reem">Política de reembolso</button></li>
+<li><button data-dlg="d-retiro">Retirar compra</button></li>
+<li><button data-dlg="d-aviso">Aviso legal</button></li>
 <li><a href="#contacto">Información de contacto</a></li>
-<li><button data-d="d-canc">Política de cancelación</button></li>
-<li><button data-d="d-envio">Política de envío</button></li>
-<li><button data-d="d-terms">Términos del servicio</button></li>
+<li><button data-dlg="d-canc">Política de cancelación</button></li>
+<li><button data-dlg="d-envio">Política de envío</button></li>
+<li><button data-dlg="d-terms">Términos del servicio</button></li>
 </ul>
 <p class="copy">© 2026 JIREH COFFEE. Todos los derechos reservados.</p>
 </div></footer>
@@ -312,7 +312,7 @@ dialog .btn{margin-top:16px}
 <aside class="drawer" aria-label="Carrito"><h2>Tu pedido <button class="x" id="close" aria-label="Cerrar">×</button></h2>
 <div id="items"></div>
 <div class="total"><span>Total</span><span id="total">0,00 €</span></div>
-<p class="fine">Al enviar, se abre WhatsApp con tu pedido listo. Coordinamos pago y envío por ahí. Tienes 14 días desde la recepción para <button class="lnk" data-d="d-retiro">retirar tu compra</button>.</p>
+<p class="fine">Al enviar, se abre WhatsApp con tu pedido listo. Coordinamos pago y envío por ahí. Tienes 14 días desde la recepción para <button class="lnk" data-dlg="d-retiro">retirar tu compra</button>.</p>
 <a class="btn btn-wa" id="send" href="#" target="_blank" rel="noopener" style="justify-content:center">Enviar pedido por WhatsApp</a>
 </aside>
 
@@ -358,7 +358,7 @@ function render(){
 $('#open').onclick=()=>document.body.classList.add('open');
 ['#close','#veil'].forEach(s=>$(s).onclick=()=>document.body.classList.remove('open'));
 render();
-document.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.d).showModal());
+document.querySelectorAll('[data-dlg]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.dlg).showModal());
 document.querySelectorAll('dialog').forEach(d=>{d.addEventListener('click',e=>{if(e.target===d||e.target.classList.contains('cerrar'))d.close()})});
 $('#verMapa').onclick=()=>{const f=document.createElement('iframe');f.title='Mapa de JIREH COFFEE en Grimbergen';f.src='https://www.google.com/maps?q=Kareelbakkerijstraat+27,+1853+Grimbergen,+Belgium&output=embed';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';$('#mapa').replaceChildren(f)};
 const g=i=>document.getElementById(i).value.trim();
